@@ -21,13 +21,22 @@ const sendEnquiryNotificationToBuyer = async (enquiry: Enquiry) => {
     `You've enquired about ${enquiry.propertyName}. Check "My Enquiries" to track status.`,
     enquiry
   );
-  console.log(success, ":success", sent, ":sent", total, ":total", message, ":message");
+  console.log(
+    success,
+    ":success",
+    sent,
+    ":sent",
+    total,
+    ":total",
+    message,
+    ":message"
+  );
 
   // save notification to buyer
   const savedNotification = await saveNotification({
     title: "Enquiry sent to Agent!",
     body: `You've enquired about ${enquiry.propertyName}. Check "My Enquiries" to track status.`,
-    cpCode: enquiry.buyerCpId,
+    cpId: enquiry.buyerCpId,
     cta: ["Call Agent", "Message on WhatsApp"],
     type: "enquiry_buyer_notification",
     meta: enquiry,
@@ -44,14 +53,23 @@ const sendEnquiryNotificationToSeller = async (enquiry: Enquiry) => {
     enquiry
   );
 
-  console.log(success, ":success", sent, ":sent", total, ":total", message, ":message");
+  console.log(
+    success,
+    ":success",
+    sent,
+    ":sent",
+    total,
+    ":total",
+    message,
+    ":message"
+  );
 
   // save notification to seller
 
   const savedNotification = await saveNotification({
     title: "New enquiry received!",
     body: `${enquiry.buyerName} enquired about ${enquiry.propertyName} (ID ${enquiry.propertyId}).`,
-    cpCode: enquiry.sellerCpId,
+    cpId: enquiry.sellerCpId,
     cta: ["Call Agent", "Message on WhatsApp"],
     type: "enquiry_seller_notification",
     meta: enquiry,

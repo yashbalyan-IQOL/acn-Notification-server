@@ -8,13 +8,11 @@ const getUnixTimestamp = () => Math.floor(Date.now() / 1000);
 
 const saveNotification = async ({
   body,
-  cpCode,
+  cpId,
   cta,
-  image = "acn_logo", // default to ACN logo
+  image = "acn_logo",
   title,
   type,
-  // propertyId,
-  // phoneNumber = null, // Set default value for phoneNumber
   ...additionalData
 }: SaveNotificationInput) => {
   try {
@@ -29,13 +27,11 @@ const saveNotification = async ({
       type,
       isRead: false,
       isDeleted: false,
-      // propertyId,
-      // phoneNumber, // Include phoneNumber with default value
       ...additionalData,
     };
 
     // Reference to the agent's notifications document
-    const agentNotificationsRef = db.collection("acnNotifications").doc(cpCode);
+    const agentNotificationsRef = db.collection("acnNotifications").doc(cpId);
 
     // Get the current document
     const doc = await agentNotificationsRef.get();
@@ -54,7 +50,7 @@ const saveNotification = async ({
       });
     }
 
-    return cpCode;
+    return cpId;
   } catch (error) {
     throw error;
   }
