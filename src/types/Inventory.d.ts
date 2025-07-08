@@ -1,0 +1,43 @@
+export interface Inventory {
+    id: string;
+    propertyId: string;
+    cpId: string;
+    propertyName: string;
+    _geoloc: {
+        lat: number;
+        lng: number;
+    };
+    area: string | null;
+    builerName: string | null;
+    builderCategory: string | null;
+    micromarket: string | null;
+    mapLocation: string | null;
+    assetType: string | null;
+    unitType: string | null;
+    subType: string | null | undefined;
+    sbua: number | null;
+    carpet: number | null;
+    plotSize: number | null;
+    buildingAge: number | null;
+    floorNo: string | null;
+    facing: string | null;
+    tenanted: boolean | null;
+    totalAskPrice: number | null;
+    askPricePerSqft: number;
+    status: string | null;
+    currentStatus: string | null;
+    builderName: string | null;
+    handoverDate: number | null;
+    buildingKhata: string | null;
+    landKhata: string | null;
+    ocReceived: boolean | null;
+    photo: string[];
+    video: string[];
+    document: string[];
+    driveLink: string | null;
+    dateOfInventoryAdded: number;
+    dateOfStatusLastChecked: number;
+    ageOfInventory: number;
+    ageOfStatus: number;
+    extraDetails: string | null;
+  }

@@ -1,4 +1,3 @@
-import { db } from "../config/firebase";
 import { saveNotification } from "../services/notificationStorageService";
 import { Request, Response } from "express";
 import { Requirement } from "../types/requirement";
