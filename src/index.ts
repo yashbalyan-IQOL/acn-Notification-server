@@ -1,6 +1,7 @@
 import express, { Request, Response } from "express";
 import cors from "cors";
 import notificationRoutes from "./routes/notificationRoutes";
+import { startDelistingCron } from "../src/cron/delistingCron"
 
 const app = express();
 const port = 3000;
@@ -24,3 +25,5 @@ app.get("/health", (_: Request, res: Response) => {
 });
 
 app.use("/notification", notificationRoutes);
+
+startDelistingCron();
