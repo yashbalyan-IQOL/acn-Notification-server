@@ -13,7 +13,7 @@ const saveNotification = async ({
   image = "acn_logo",
   title,
   type,
-  ...additionalData
+  meta,
 }: SaveNotificationInput) => {
   try {
     // Base notification structure
@@ -27,7 +27,7 @@ const saveNotification = async ({
       type,
       isRead: false,
       isDeleted: false,
-      ...additionalData,
+      ...meta,
     };
 
     // Reference to the agent's notifications document
