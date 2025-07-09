@@ -27,7 +27,7 @@ const saveNotification = async ({
       type,
       isRead: false,
       isDeleted: false,
-      ...meta,
+      meta,
     };
 
     // Reference to the agent's notifications document
