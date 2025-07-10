@@ -5,7 +5,7 @@ import { saveNotification } from "../services/notificationStorageService";
 
 export const sendEnquiryNotification = async (req: Request, res: Response) => {
   const enquiryId = req.params.enquiryId;
-  const enquiry: Enquiry = req.body;
+  const enquiry: Enquiry = req.body.enq;
   console.log("sending enquiry notification to buyer");
   await sendEnquiryNotificationToBuyer(enquiry);
   console.log("sending enquiry notification to seller");
