@@ -31,6 +31,7 @@ const saveNotification = async ({
     };
 
     // Reference to the agent's notifications document
+    console.log("Saving notification for cpId:", cpId);
     const agentNotificationsRef = db.collection("acnNotifications").doc(cpId);
 
     // Get the current document

@@ -6,6 +6,15 @@ const sendNotificationToAgent = async (
   data: any
 ) => {
   try {
+    // Validate cpId before using it as a document path
+    if (!cpId || typeof cpId !== "string" || cpId.trim() === "") {
+      return {
+        success: false,
+        message: "Invalid cpId provided",
+        sent: 0,
+        total: 0,
+      };
+    }
     // Get the agent's FCM token from Firestore
     const agentRef = db.collection("acnAgents").doc(cpId);
     const agentDoc = await agentRef.get();
