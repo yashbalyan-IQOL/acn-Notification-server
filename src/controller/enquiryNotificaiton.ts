@@ -37,7 +37,7 @@ const sendEnquiryNotificationToBuyer = async (enquiry: Enquiry) => {
     title: "Enquiry sent to Agent!",
     body: `You've enquired about ${enquiry.propertyName}. Check "My Enquiries" to track status.`,
     cpId: enquiry.buyerCpId,
-    cta: ["Call Agent", "Message on WhatsApp"],
+    cta: ["Call Agent", "Message Agent"],
     type: "enquiry_buyer_notification",
     meta: enquiry,
   });
@@ -70,7 +70,7 @@ const sendEnquiryNotificationToSeller = async (enquiry: Enquiry) => {
     title: "New enquiry received!",
     body: `${enquiry.buyerName} enquired about ${enquiry.propertyName} (ID ${enquiry.propertyId}).`,
     cpId: enquiry.sellerCpId,
-    cta: ["Call Agent", "Message on WhatsApp"],
+    cta: ["Call Agent", "Message Agent"],
     type: "enquiry_seller_notification",
     meta: enquiry,
   });
