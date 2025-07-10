@@ -3,7 +3,7 @@ import { Request, Response } from "express";
 import { Requirement } from "../types/requirement";
 
 export const handleAddedRequirementsNotification = async (req: Request, res: Response) => {
-  const requirement: Requirement = req.body;
+  const requirement: Requirement = req.body.formData;
   try {
     await saveNotification({
       title: "Requirement Posted",

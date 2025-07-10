@@ -8,7 +8,7 @@ export const sendListingLiveNotification = async (
   res: Response
 ) => {
   const listingId = req.params.listingId;
-  const listing: Listing = req.body;
+  const listing: Listing = req.body.dataToProperty;
   console.log(listing, "listing");
   const { success, sent, total, message } = await sendNotificationToAgent(
     listing.cpId,
